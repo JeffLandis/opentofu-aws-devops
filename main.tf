@@ -3,9 +3,9 @@
 # See the AWS documentation for details. 
 # https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html
 resource "aws_codestarconnections_connection" "this" {
-    for_each = { for val in var.codestarconnections: val.name => val}
-    name          = each.key
-    provider_type = each.value.provider_type
+  for_each      = { for val in var.codestarconnections : val.name => val }
+  name          = each.key
+  provider_type = each.value.provider_type
 }
 
 # resource "aws_codepipeline" "codepipeline" {
